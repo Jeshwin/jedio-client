@@ -1,10 +1,14 @@
 <template>
-
+  <Nav />
+  <div class="container mx-auto">
+    <router-view />
+  </div>
+  <Footer />
 </template>
 
 <script>
-import Nav from '@/componenets/Nav.vue'
-import Footer from '@/componenets/Footer.vue'
+import Nav from '@/components/Nav.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'App',

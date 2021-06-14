@@ -1,5 +1,14 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <Welcome intro="About" signature="by Jeshwin Prince" />
 </template>
+
+<script>
+import Welcome from '@/components/Welcome.vue'
+
+export default {
+  name: 'About',
+  components: {
+    Welcome
+  }
+}
+</script>

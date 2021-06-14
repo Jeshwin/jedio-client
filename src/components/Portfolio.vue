@@ -26,8 +26,7 @@ import HomeDisplay from './HomeDisplay.vue'
 export default {
   name: 'Portfolio',
   props: {
-    medium: String,
-    isEven: Boolean
+    medium: String
   },
   components: {
     HomeDisplay
