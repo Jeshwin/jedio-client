@@ -4,9 +4,8 @@
       <img src="@/assets/portfolio.png" width="50" height="50">
     </router-link>
     <div class="w-full flex justify-end">
-      <a class="mr-6" href="http://localhost:8081">Express</a>
-      <a class="mx-6" href="/">Vue</a>
-      <!-- <a class="mx-6" href="#">About</a> -->
+      <a class="mr-6" href="http://localhost:3000">Express</a>
+      <router-link class="mx-6" to="/create">Create</router-link>
       <router-link class="mx-6" to="/about">About</router-link>
     </div>
   </ul>
