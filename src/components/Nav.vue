@@ -5,7 +5,7 @@
     </router-link>
     <div class="w-full flex justify-end">
       <a class="mr-6" href="http://localhost:3000">Express</a>
-      <router-link class="mx-6" to="/create">Create</router-link>
+      <router-link class="mx-6" to="/create/project">Create</router-link>
       <router-link class="mx-6" to="/about">About</router-link>
     </div>
   </ul>

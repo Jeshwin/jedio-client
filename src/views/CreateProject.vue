@@ -1,5 +1,5 @@
 <template>
-  <Welcome intro="Create" signature="New Project" />
+  <Welcome intro="New Project" signature="" />
   <form enctype="multipart/form-data" action="http://localhost:3000/create/project" method="post">
     <label for="title">Title:</label><br>
     <input type="text" name="title" id="title"><br>
@@ -8,9 +8,7 @@
     <label for="description">Description:</label><br>
     <input type="text" name="description" id="description"><br>
     <label for="thumbnail">Thumbnail:</label><br>
-    <input type="file" name="thumbnail" id="thumbnail"><br>
-    <label for="dateCreated">Date Created:</label><br>
-    <input type="datetime-local" name="dateCreated" id="dateCreated"><br><br>
+    <input type="file" name="thumbnail" id="thumbnail"><br><br>
     <input type="submit" value="Create!">
   </form>
 </template>

@@ -17,9 +17,14 @@ const routes = [
     component: () => import('../views/About.vue')
   },
   {
-    path: '/create',
+    path: '/create/project',
     name: 'Create Project',
-    component: () => import('../views/Create.vue')
+    component: () => import('../views/CreateProject.vue')
+  },
+  {
+    path: '/create/blob',
+    name: 'Create Blob',
+    component: () => import('../views/CreateBlob.vue')
   }
 ]
 
