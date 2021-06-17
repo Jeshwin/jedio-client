@@ -14,39 +14,28 @@
 
 <script>
 import Welcome from '@/components/Welcome.vue'
-const axios = require('axios')
+import getProjectsService from '@/services/getProjectsService.js'
 
 export default {
   name: 'Create Project',
   components: {
     Welcome
   },
-  data: () => {
+  data () {
     return {
-      projects: [
-        {
-          id: 1,
-          title: 'Hello'
-        },
-        {
-          id: 2,
-          title: 'General'
-        },
-        {
-          id: 3,
-          title: 'blah'
-        }
-      ]
+      projects: []
     }
   },
   methods: {
-    async getProjects () {
-      const completeResponse = await axios.get('http://localhost:3000/projects').catch((err) => console.error(err))
-      this.projects = completeResponse.data
+    async getProjectsData () {
+      getProjectsService.getProjects()
+        .then((data) => {
+          this.$set(this, 'projects', data).bind(this)
+        }).catch((err) => console.error(err))
     }
   },
-  mounted: () => {
-    this.getProjects()
+  created () {
+    this.getProjectsData()
   }
 }
 </script>
