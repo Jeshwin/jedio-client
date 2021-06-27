@@ -13,8 +13,10 @@
 </template>
 
 <script>
+/* eslint-disable vue/return-in-computed-property */
+/* eslint-disable vue/no-async-in-computed-properties */
 import Welcome from '@/components/Welcome.vue'
-import getProjectsService from '@/services/getProjectsService.js'
+import axios from 'axios'
 
 export default {
   name: 'Create Project',
@@ -26,16 +28,14 @@ export default {
       projects: []
     }
   },
-  methods: {
-    async getProjectsData () {
-      getProjectsService.getProjects()
-        .then((data) => {
-          this.$set(this, 'projects', data).bind(this)
-        }).catch((err) => console.error(err))
+  async created () {
+    try {
+      const res = await axios.get('http://localhost:3000/projects')
+
+      this.projects = res.data
+    } catch (e) {
+      console.error(e)
     }
-  },
-  created () {
-    this.getProjectsData()
   }
 }
 </script>
