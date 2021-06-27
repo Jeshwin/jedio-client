@@ -1,6 +1,5 @@
 <template>
-  <Welcome intro="New Blob" signature="Blob is a file btw" />
-  <p>Project: {{ projects }}</p>
+  <Welcome intro="New Blob" signature="Blobs are files linked to projects" />
   <form enctype="multipart/form-data" action="http://localhost:3000/create/blob" method="post">
     <label for="blob">Blob:</label><br>
     <input type="file" name="blob" id="blob"><br>
