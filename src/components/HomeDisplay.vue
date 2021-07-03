@@ -1,6 +1,5 @@
 <template lang="html">
   <a :href="link" class="place-self-center m-auto h-3/4 w-3/4">
-    <!-- TODO: add image and link to new page -->
     <img class="h-full w-full" :src="source" :alt="name">
   </a>
 </template>
