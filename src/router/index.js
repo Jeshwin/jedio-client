@@ -30,6 +30,11 @@ const routes = [
     path: '/update/project',
     name: 'Update Project',
     component: () => import('../views/UpdateProject.vue')
+  },
+  {
+    path: '/delete',
+    name: 'Delete',
+    component: () => import('../views/DeleteTester.vue')
   }
 ]
 
