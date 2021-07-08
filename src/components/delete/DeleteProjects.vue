@@ -5,7 +5,7 @@
         Delete Projects
       </div>
       <div class="grid grid-cols-3 gap-10 text-2xl text-white font-quicksand">
-        <button class="rounded-xl bg-red-700 content-center h-25 p-5" v-for="project in projects" :key="project.id" @click="deleteProject(project.id)">
+        <button class="transform duration-200 rounded-xl bg-red-700 hover:bg-red-900 content-center h-25 p-5" v-for="project in projects" :key="project.id" @click="deleteProject(project.id)">
           Delete '{{ project.title }}'
         </button>
       </div>
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     async deleteProject (projectId) {
-      const res = await axios.delete(`http://localhost:3000/delete/project/${projectId}`).catch(err => console.error(err))
-      return res
+      await axios.delete(`http://localhost:3000/delete/project/${projectId}`).catch(err => console.error(err))
+      this.$router.push('/')
     }
   }
 }
