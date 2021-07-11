@@ -1,7 +1,7 @@
 <template>
   <Welcome intro="Update Project" signature="" />
   <form enctype="application/x-www-form-urlencoded" action="http://localhost:3000/update/project" method="post">
-    <label for="oldproject">Project:</label><br>
+    <label for="oldtitle">Project:</label><br>
     <select name="oldtitle" id="oldtitle">
       <option v-for="project in projects" :value="project.title" :key="project.id">{{ project.title }}</option>
     </select><br><br>
