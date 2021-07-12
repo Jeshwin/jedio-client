@@ -35,6 +35,11 @@ const routes = [
     path: '/delete',
     name: 'Delete',
     component: () => import('../views/DeleteTester.vue')
+  },
+  {
+    path: '/category/:category/project/:projid',
+    name: 'Project',
+    component: () => import('../views/ProjectView.vue')
   }
 ]
 
