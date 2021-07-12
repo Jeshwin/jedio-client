@@ -2,8 +2,6 @@
   <Welcome intro="Portfolio" signature="by Jeshwin Prince" />
   <Portfolio medium="Test" />
   <Portfolio medium="Images" />
-  <Portfolio medium="Images" />
-  <Portfolio medium="Test" />
 </template>
 
 <script>

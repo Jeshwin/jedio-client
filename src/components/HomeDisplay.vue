@@ -1,5 +1,5 @@
 <template lang="html">
-  <a :href="link" class="place-self-center m-auto h-3/4 w-3/4">
+  <a :href="link" class="place-self-center m-auto h-full w-full">
     <img class="h-full w-full" :src="source" :alt="name">
   </a>
 </template>
