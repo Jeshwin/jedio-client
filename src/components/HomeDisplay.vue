@@ -28,14 +28,14 @@ export default {
   computed: {
     link () {
       var mediumURI = encodeURIComponent(this.medium.toLowerCase())
-      return `http://localhost:8080/category/${mediumURI}/project/${this.projid}`
+      return `http://192.168.1.89:8080/category/${mediumURI}/project/${this.projid}`
     },
     source () {
-      return `http://localhost:3000/${this.thumbnail.fileType}/${this.thumbnail.fileName}.${this.thumbnail.fileType}`
+      return `http://192.168.1.89:3000/${this.thumbnail.fileType}/${this.thumbnail.fileName}.${this.thumbnail.fileType}`
     }
   },
   async created () {
-    const res = await axios.get(`http://localhost:3000/project/${this.projid}/thumbnail`)
+    const res = await axios.get(`http://192.168.1.89:3000/project/${this.projid}/thumbnail`)
     this.thumbnail = res.data[0]
   }
 }

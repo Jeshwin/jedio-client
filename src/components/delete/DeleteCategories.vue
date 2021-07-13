@@ -24,7 +24,7 @@ export default {
     }
   },
   async created () {
-    const res = await axios.get('http://localhost:3000/projects').catch(err => console.error(err))
+    const res = await axios.get('http://192.168.1.89:3000/projects').catch(err => console.error(err))
     res.data.forEach((project) => {
       if (!this.categories.includes(project.category)) {
         this.categories.push(project.category)
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     async deleteCategory (category) {
-      await axios.delete(`http://localhost:3000/delete/category/${category}`).catch(err => console.error(err))
+      await axios.delete(`http://192.168.1.89:3000/delete/category/${category}`).catch(err => console.error(err))
       this.$router.push('/')
     }
   }

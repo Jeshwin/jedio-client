@@ -1,6 +1,6 @@
 <template>
   <Welcome intro="Update Project" signature="" />
-  <form enctype="application/x-www-form-urlencoded" action="http://localhost:3000/update/project" method="post">
+  <form enctype="application/x-www-form-urlencoded" action="http://192.168.1.89:3000/update/project" method="post">
     <label for="oldtitle">Project:</label><br>
     <select name="oldtitle" id="oldtitle">
       <option v-for="project in projects" :value="project.title" :key="project.id">{{ project.title }}</option>
@@ -31,7 +31,7 @@ export default {
   },
   async created () {
     try {
-      const res = await axios.get('http://localhost:3000/projects')
+      const res = await axios.get('http://192.168.1.89:3000/projects')
 
       this.projects = res.data
     } catch (e) {

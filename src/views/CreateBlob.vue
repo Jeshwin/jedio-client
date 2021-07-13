@@ -1,6 +1,6 @@
 <template>
   <Welcome intro="New Blob" signature="Blobs are files linked to projects" />
-  <form enctype="multipart/form-data" action="http://localhost:3000/create/blob" method="post">
+  <form enctype="multipart/form-data" action="http://192.168.1.89:3000/create/blob" method="post">
     <label for="blob">Blob:</label><br>
     <input type="file" name="blob" id="blob"><br>
     <label for="project">Project:</label><br>
@@ -29,7 +29,7 @@ export default {
   },
   async created () {
     try {
-      const res = await axios.get('http://localhost:3000/projects')
+      const res = await axios.get('http://192.168.1.89:3000/projects')
 
       this.projects = res.data
     } catch (e) {

@@ -24,12 +24,12 @@ export default {
     }
   },
   async created () {
-    const res = await axios.get('http://localhost:3000/blobs').catch(err => console.error(err))
+    const res = await axios.get('http://192.168.1.89:3000/blobs').catch(err => console.error(err))
     this.blobs = res.data
   },
   methods: {
     async deleteBlob (blobId) {
-      await axios.delete(`http://localhost:3000/delete/blob/${blobId}`).catch(err => console.error(err))
+      await axios.delete(`http://192.168.1.89:3000/delete/blob/${blobId}`).catch(err => console.error(err))
       this.$router.push('/')
     }
   }

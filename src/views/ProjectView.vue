@@ -22,14 +22,14 @@ export default {
     }
   },
   async created () {
-    const Projres = await axios.get(`http://localhost:3000/project/${this.$route.params.projid}`).catch((err) => console.error(err))
-    const Blobres = await axios.get(`http://localhost:3000/project/${this.$route.params.projid}/thumbnail`).catch((err) => console.error(err))
+    const Projres = await axios.get(`http://192.168.1.89:3000/project/${this.$route.params.projid}`).catch((err) => console.error(err))
+    const Blobres = await axios.get(`http://192.168.1.89:3000/project/${this.$route.params.projid}/thumbnail`).catch((err) => console.error(err))
     this.project = Projres.data[0]
     this.thumbnail = Blobres.data[0]
   },
   computed: {
     source () {
-      return `http://localhost:3000/${this.thumbnail.fileType}/${this.thumbnail.fileName}.${this.thumbnail.fileType}`
+      return `http://192.168.1.89:3000/${this.thumbnail.fileType}/${this.thumbnail.fileName}.${this.thumbnail.fileType}`
     }
   }
 }

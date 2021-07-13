@@ -24,12 +24,12 @@ export default {
     }
   },
   async created () {
-    const res = await axios.get('http://localhost:3000/projects').catch(err => console.error(err))
+    const res = await axios.get('http://192.168.1.89:3000/projects').catch(err => console.error(err))
     this.projects = res.data
   },
   methods: {
     async deleteProject (projectId) {
-      await axios.delete(`http://localhost:3000/delete/project/${projectId}`).catch(err => console.error(err))
+      await axios.delete(`http://192.168.1.89:3000/delete/project/${projectId}`).catch(err => console.error(err))
       this.$router.push('/')
     }
   }
