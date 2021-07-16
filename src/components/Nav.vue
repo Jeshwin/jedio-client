@@ -5,10 +5,10 @@
     </router-link>
     <div class="w-full flex justify-end">
       <router-link class="mx-6" to="/delete">Delete</router-link>
-      <router-link class="mx-6" to="/create/project">Create Project</router-link>
-      <router-link class="mx-6" to="/create/blob">Create Blob</router-link>
-      <router-link class="mx-6" to="/update/project">Update Project</router-link>
-      <a class="mr-6" href="http://localhost:3000">Express</a>
+      <router-link class="mx-6" to="/create/project">New Project</router-link>
+      <router-link class="mx-6" to="/create/blob">New Blob</router-link>
+      <router-link class="mx-6" to="/update/project">Update</router-link>
+      <a class="mx-6" href="http://localhost:3000">Express</a>
     </div>
   </ul>
 </template>
