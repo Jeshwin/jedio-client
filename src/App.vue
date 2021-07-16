@@ -1,6 +1,6 @@
 <template>
   <Nav />
-  <div class="container mx-auto">
+  <div class="container mx-auto px-10">
     <router-view />
   </div>
   <Footer />
