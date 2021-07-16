@@ -1,11 +1,11 @@
 <template>
   <Welcome intro="New Blob" signature="Blobs are files linked to projects" />
-  <form enctype="multipart/form-data" action="http://localhost:3000/create/blob" method="post">
+  <form enctype="multipart/form-data" action="http://localhost:3000/create/blob" method="post" id="blobForm">
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <p class="fake-label">Blob:</p>
       <label for="blob" class="custom-blob-button" >
         <p>{{ blobFileName }}</p>
-        <input class="hidden" type="file" name="blob" form="project" id="blob" @change="getBlobFileName">
+        <input class="hidden" type="file" name="blob" form="blobForm" id="blob" @change="getBlobFileName">
       </label>
     </div>
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
