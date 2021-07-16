@@ -1,5 +1,5 @@
 <template lang="html">
-  <img class="h-48 w-auto" :src="source" :alt="blob.fileName">
+  <img class="min-w-full h-48 object-cover align-bottom rounded-xl" :src="source" :alt="blob.fileName">
 </template>
 
 <script>
@@ -26,6 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" scoped>
-</style>

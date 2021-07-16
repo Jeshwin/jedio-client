@@ -1,49 +1,38 @@
 <template>
-  <div class="grid grid-cols-2 items-center h-full pt-24 pb-4 border-b border-black text-left">
-    <div class="flex flex-row justify-start items-center text-7xl w-full col-span-2 font-montserrat text-black">
-      <img :src="source" :alt="thumbnail.fileName" class="h-32 mr-4 w-auto">
-      {{ project.title }}
+  <div class="flex flex-row justify-start gap-4 h-auto pt-24 pb-4 border-b border-black text-left">
+    <div class="w-44 flex-shrink-0 rounded-2xl ring-1 ring-gray-500">
+      <img :src="source" :alt="thumbnail.fileName" class="h-44 w-44 p-2">
     </div>
-    <div class="text-xl w-full self-start my-4 font-quicksand text-gray-500 font-semibold">
-      By Jeshwin Prince
-    </div>
-    <div class="text-xl w-full my-4 font-quicksand text-gray-500 text-right font-semibold">
-      {{ createdDate }}<br>{{ updatedDate }}
+    <div class="grid grid-cols-2 w-full pt-14">
+      <div class="text-7xl text-left w-full h-20 col-span-2 font-montserrat text-black">
+        {{ project.title }}
+      </div>
+      <div class="text-2xl w-full self-start -mt-2 font-quicksand text-gray-500 font-semibold">
+        By Jeshwin Prince
+      </div>
+      <div class="text-base w-full h-auto -mt-2 font-montserrat text-gray-500 text-right">
+        {{ createdDate }}<br>{{ updatedDate }}
+      </div>
     </div>
   </div>
   <div class="mx-auto pt-10 pb-14 prose prose-2xl prose-purple font-quicksand text-left" v-html="markedDescription"></div>
-  <div class="w-full py-12 border-t border-gray-700">
-    <div class="grid grid-cols-1 gap-2">
-      <div class="text-4xl text-black text-left">
-        Gallery
-      </div>
-      <vue-horizontal responsive class="flex w-full">
-        <div class="my-2 mx-1 relative" v-for="blob in blobs" :key="blob.id">
-          <div class="flex rounded-sm shadow-md p-4 h-auto">
-            <blobs-display :id="blob.id" />
-          </div>
-        </div>
-      </vue-horizontal>
-    </div>
-  </div>
+  <gallery :blobs="blobs" />
 </template>
 
 <script>
 import axios from 'axios'
 import marked from 'marked'
 import DOMPurify from 'dompurify'
-import VueHorizontal from 'vue-horizontal'
-import BlobsDisplay from '@/components/BlobsDisplay.vue'
+import Gallery from '@/components/Gallery.vue'
 
 export default {
   name: 'Project',
   components: {
-    VueHorizontal,
-    BlobsDisplay
+    Gallery
   },
   data () {
     return {
-      project: {},
+      project: { description: '### Filler description\n > Filler' },
       thumbnail: {},
       blobs: [],
       monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
