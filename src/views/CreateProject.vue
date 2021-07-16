@@ -1,6 +1,6 @@
 <template>
   <Welcome intro="New Project" signature="" />
-  <form enctype="multipart/form-data" action="http://192.168.1.89:3000/create/project" method="post" id="project">
+  <form enctype="multipart/form-data" action="http://localhost:3000/create/project" method="post" id="project">
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="title">Title:</label>
       <input class="w-56 overflow-x-auto" type="text" name="title" id="title">
@@ -12,7 +12,7 @@
     <div class="flex flex-row my-3 border-b border-purple-200">
       <label for="description">Description:</label>
       <textarea v-model="input" placeholder="## Enter description here..." name="description" id="description"></textarea>
-      <div class="prose prose-sm md:prose lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-blue w-2/5 h-96 mb-4 p-6 overflow-y-auto rounded-r-lg border-2 border-l-0 border-purple-400 font-montserrat" v-html="compiledMarkdown"></div>
+      <div class="prose prose-sm md:prose lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-purple w-2/5 h-96 mb-4 p-6 overflow-y-auto rounded-r-lg border-2 border-l-0 border-purple-400 font-montserrat" v-html="compiledMarkdown"></div>
     </div>
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <p class="fake-label">Thumbnail:</p>

@@ -2,7 +2,7 @@
   <div class="w-full py-16 border-b border-black">
     <div class="grid grid-cols-1 gap-y-7 font-montserrat">
       <div class="text-4xl font-bold text-black text-left">
-        Delete Projects
+        Delete Categories
       </div>
       <div class="grid grid-cols-3 gap-10 text-2xl text-white font-quicksand">
         <button class="transform duration-200 rounded-xl bg-gray-700 hover:bg-gray-900 content-center h-25 p-5" v-for="category in categories" :key="category" @click="deleteCategory(category)">
@@ -24,7 +24,7 @@ export default {
     }
   },
   async created () {
-    const res = await axios.get('http://192.168.1.89:3000/projects').catch(err => console.error(err))
+    const res = await axios.get('http://localhost:3000/projects').catch(err => console.error(err))
     res.data.forEach((project) => {
       if (!this.categories.includes(project.category)) {
         this.categories.push(project.category)
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     async deleteCategory (category) {
-      await axios.delete(`http://192.168.1.89:3000/delete/category/${category}`).catch(err => console.error(err))
+      await axios.delete(`http://localhost:3000/delete/category/${category}`).catch(err => console.error(err))
       this.$router.push('/')
     }
   }

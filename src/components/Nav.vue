@@ -4,9 +4,11 @@
       <img src="@/assets/portfolio.png" width="50" height="50">
     </router-link>
     <div class="w-full flex justify-end">
-      <a class="mr-6" href="http://192.168.1.89:3000">Express</a>
-      <router-link class="mx-6" to="/create/project">Create</router-link>
-      <router-link class="mx-6" to="/about">About</router-link>
+      <router-link class="mx-6" to="/delete">Delete</router-link>
+      <router-link class="mx-6" to="/create/project">Create Project</router-link>
+      <router-link class="mx-6" to="/create/blob">Create Blob</router-link>
+      <router-link class="mx-6" to="/update/project">Update Project</router-link>
+      <a class="mr-6" href="http://localhost:3000">Express</a>
     </div>
   </ul>
 </template>

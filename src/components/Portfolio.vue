@@ -35,7 +35,7 @@ export default {
     VueHorizontal
   },
   async created () {
-    const res = await axios.get(`http://192.168.1.89:3000/project/category/${this.medium}`)
+    const res = await axios.get(`http://localhost:3000/project/category/${this.medium}`)
     this.projects = res.data
   }
 }
