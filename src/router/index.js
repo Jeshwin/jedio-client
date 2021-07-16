@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
+import Project from '@/views/Project.vue'
 
 const routes = [
   {
@@ -14,32 +15,32 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     // webpackChunkName: "about"
-    component: () => import('../views/About.vue')
+    component: () => import('@/views/About.vue')
   },
   {
     path: '/create/project',
     name: 'Create Project',
-    component: () => import('../views/CreateProject.vue')
+    component: () => import('@/views/CreateProject.vue')
   },
   {
     path: '/create/blob',
     name: 'Create Blob',
-    component: () => import('../views/CreateBlob.vue')
+    component: () => import('@/views/CreateBlob.vue')
   },
   {
     path: '/update/project',
     name: 'Update Project',
-    component: () => import('../views/UpdateProject.vue')
+    component: () => import('@/views/UpdateProject.vue')
   },
   {
     path: '/delete',
     name: 'Delete',
-    component: () => import('../views/DeleteTester.vue')
+    component: () => import('@/views/DeleteTester.vue')
   },
   {
-    path: '/:category/project/:projid',
+    path: '/project/:projid',
     name: 'Project',
-    component: () => import('../views/ProjectView.vue')
+    component: Project
   }
 ]
 

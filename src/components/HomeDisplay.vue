@@ -27,8 +27,7 @@ export default {
   },
   computed: {
     link () {
-      var mediumURI = encodeURIComponent(this.medium.toLowerCase())
-      return `http://localhost:8080/${mediumURI}/project/${this.projid}`
+      return `http://localhost:8080/project/${this.projid}`
     },
     source () {
       return `http://localhost:3000/${this.thumbnail.fileType}/${this.thumbnail.fileName}.${this.thumbnail.fileType}`
