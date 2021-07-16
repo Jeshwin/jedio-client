@@ -37,7 +37,7 @@ const routes = [
     component: () => import('../views/DeleteTester.vue')
   },
   {
-    path: '/category/:category/project/:projid',
+    path: '/:category/project/:projid',
     name: 'Project',
     component: () => import('../views/ProjectView.vue')
   }
