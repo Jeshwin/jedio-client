@@ -1,5 +1,5 @@
 <template lang="html">
-  <img class="min-w-full h-48 object-cover align-bottom rounded-xl" :src="source" :alt="blob.fileName">
+  <img class="min-w-full max-h-full object-cover align-bottom rounded-xl" :src="source" :alt="blob.fileName">
 </template>
 
 <script>

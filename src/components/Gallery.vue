@@ -6,7 +6,7 @@
       </div>
       <div class="w-full mx-2 px-2">
         <ul class="flex flex-wrap gap-2">
-          <li class="h-48 flex-grow" v-for="blob in blobs" :key="blob.id">
+          <li class="flex-grow" v-for="blob in blobs" :key="blob.id">
             <blobs-display :id="blob.id" />
           </li>
           <li class="end"></li>
@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+img {
+  height: 25vh;
+}
 .ending {
   flex-grow: 10;
 }
