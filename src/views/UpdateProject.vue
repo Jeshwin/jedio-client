@@ -4,6 +4,7 @@
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="oldtitle">Project:</label>
       <select name="oldtitle" id="oldtitle" @change="updateFiller">
+        <option :value="fillerValue">~~ Select An Option ~~</option>
         <option v-for="project in projects" :value="project.title" :key="project.id">{{ project.title }}</option>
       </select>
     </div>
@@ -46,6 +47,9 @@ export default {
   computed: {
     compiledMarkdown () {
       return DOMPurify.sanitize(marked(this.input))
+    },
+    fillerValue () {
+      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
     }
   },
   async created () {
@@ -72,7 +76,7 @@ export default {
 
 <style lang="postcss" scoped>
 form {
-  @apply text-left py-16;
+  @apply text-left py-2;
 }
 label, .fake-label, input {
   @apply text-left text-lg font-montserrat font-semibold;
