@@ -4,9 +4,9 @@
       <div class="text-4xl font-bold text-black text-left">
         {{ medium }}
       </div>
-      <vue-horizontal snap="none" class="flex flex-nowrap justify-left gap-x-6 w-full 2xl:h-96 xl:h-80 lg:h-72 md:h-56 sm:h-48 h-36 b-8">
-        <div class="m-3 w-1/4 relative" v-for="project in projects" :key="project.id">
-          <div class="flex rounded-md shadow-lg h-full p-6">
+      <vue-horizontal snap="none" class="flex flex-nowrap justify-left gap-x-6 w-full h-var">
+        <div class="w-var relative" v-for="project in projects" :key="project.id">
+          <div class="flex rounded-md shadow-lg h-full p-var">
             <HomeDisplay :medium="medium" :name="project.title" :projid="project.id"/>
           </div>
         </div>
@@ -44,5 +44,18 @@ export default {
 <style lang="postcss" scoped>
 .v-hl-container {
   margin: 0px;
+}
+
+.h-var {
+  height: 21.5vw;
+}
+
+.w-var {
+  width: 20vw;
+  margin: 0.75vw;
+}
+
+.p-var {
+  padding: 1vw;
 }
 </style>
