@@ -29,7 +29,6 @@
 import Welcome from '@/components/Welcome.vue'
 import marked from 'marked'
 import DOMPurify from 'dompurify'
-// const _ = require('lodash')
 
 export default {
   name: 'Create Project',
