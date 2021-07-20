@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row justify-start gap-4 h-auto pt-24 pb-4 border-b border-black text-left">
     <div class="w-44 flex-shrink-0 rounded-2xl ring-1 ring-gray-500">
-      <img :src="source" :alt="thumbnail.fileName" class="h-44 w-44 p-2">
+      <img :src="source" :alt="thumbnail.fileName" class="h-44 w-44 rounded-2xl">
     </div>
     <div class="grid grid-cols-2 w-full pt-14">
       <div class="text-7xl text-left w-full h-20 col-span-2 font-montserrat text-black">
