@@ -4,11 +4,17 @@
       <img src="@/assets/portfolio.png" width="50" height="50">
     </router-link>
     <div class="w-full flex justify-end">
-      <router-link class="mx-6" to="/delete">Delete</router-link>
-      <router-link class="mx-6" to="/create/project">New Project</router-link>
-      <router-link class="mx-6" to="/create/blob">New Blob</router-link>
-      <router-link class="mx-6" to="/update/project">Update</router-link>
-      <a v-if="loggedIn" class="mx-6" href="http://localhost:3000">Express</a>
+      <div v-if="loggedIn">
+        <router-link v-if="isAdmin" class="mx-6" to="/delete">Delete</router-link>
+        <router-link class="mx-6" to="/create/project">New Project</router-link>
+        <router-link class="mx-6" to="/create/blob">New Blob</router-link>
+        <router-link class="mx-6" to="/update/project">Update</router-link>
+        <span class="mx-6 cursor-pointer" @click="logout">Log Out</span>
+      </div>
+      <div v-else>
+        <router-link class="mx-6" to="/register">Register</router-link>
+        <router-link class="mx-6" to="/signin">Log In</router-link>
+      </div>
     </div>
   </ul>
 </template>
@@ -19,6 +25,14 @@ export default {
   computed: {
     loggedIn () {
       return this.$store.state.auth.status.loggedIn
+    },
+    isAdmin () {
+      return this.$store.state.auth.user.isAdmin
+    }
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('auth/logout').then(() => this.$router.push('/')).catch((err) => console.error(err))
     }
   }
 }
@@ -26,6 +40,9 @@ export default {
 
 <style lang="postcss" scoped>
 a {
-  @apply transform duration-200 text-black hover:text-blue-300 font-montserrat text-2xl;
+  @apply transform duration-300 text-black hover:text-purple-400 font-montserrat text-2xl;
+}
+span {
+  @apply font-montserrat transform duration-300 text-black text-2xl hover:text-red-500;
 }
 </style>
