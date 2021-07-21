@@ -20,24 +20,39 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'User',
+  name: 'Other User',
+  data () {
+    return {
+      user: {
+        id: -1,
+        username: 'anon',
+        email: 'notanemail@ddress.com',
+        createdAt: '2020-09-21',
+        updatedAt: '2020-09-24'
+      }
+    }
+  },
+  async created () {
+    if (this.loggedIn && this.$route.params.id === this.currentUserId) {
+      this.$router.push('/user')
+    }
+    const userData = await axios.get(`http://localhost:3000/user/${this.$route.params.id}`).catch((err) => console.error(err))
+    this.user = userData.data[0]
+  },
   computed: {
+    dateJoined () {
+      const created = new Date(this.user.createdAt)
+      const monthsList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      return `${monthsList[created.getMonth()]} ${created.getFullYear()}`
+    },
     loggedIn () {
       return this.$store.state.auth.status.loggedIn
     },
-    user () {
-      return this.$store.state.auth.user
-    },
-    dateJoined () {
-      const created = new Date(this.$store.state.auth.user.createdAt)
-      const monthsList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-      return `${monthsList[created.getMonth()]} ${created.getFullYear()}`
-    }
-  },
-  created () {
-    if (!this.loggedIn) {
-      this.$router.push('/signin')
+    currentUserId () {
+      return this.$store.state.auth.user.id
     }
   }
 }
