@@ -8,14 +8,19 @@
       <router-link class="mx-6" to="/create/project">New Project</router-link>
       <router-link class="mx-6" to="/create/blob">New Blob</router-link>
       <router-link class="mx-6" to="/update/project">Update</router-link>
-      <a class="mx-6" href="http://localhost:3000">Express</a>
+      <a v-if="loggedIn" class="mx-6" href="http://localhost:3000">Express</a>
     </div>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'Nav'
+  name: 'Nav',
+  computed: {
+    loggedIn () {
+      return this.$store.state.auth.status.loggedIn
+    }
+  }
 }
 </script>
 
