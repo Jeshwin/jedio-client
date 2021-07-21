@@ -1,5 +1,5 @@
 <template>
-  <Welcome intro="New Project" signature="" />
+  <welcome intro="New Project" signature="Add a new project" />
   <form enctype="multipart/form-data" action="http://localhost:3000/create/project" method="post" id="project">
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="title">Title:</label>
