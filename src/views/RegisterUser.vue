@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/2 min-w-max mx-auto pt-28 pb-12">
+  <div class="w-1/2 min-w-max mx-auto pt-28">
     <form enctype="application/x-www-form-urlencoded" action="javascript:void(0);" @submit="registerUser" method="post">
       <div class="text-center pb-6">
         <span class="text-7xl font-quicksand font-black text-purple-900">Register</span>

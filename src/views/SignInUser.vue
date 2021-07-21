@@ -1,8 +1,11 @@
 <template>
-  <div class="w-1/2 min-w-max mx-auto pt-28 pb-12">
+  <div class="w-1/2 min-w-max mx-auto pt-28">
+    <div v-if="message" class="w-auto max-w-max mx-auto px-8 py-4 mb-8 z-30 rounded-3xl transition duration-1000 bg-yellow-400 text-black font-mono font-black text-2xl">
+      {{ errorStatus }} : {{ message }}
+    </div>
     <form enctype="application/x-www-form-urlencoded" action="javascript:void(0);" @submit="signinUser" method="post">
       <div class="text-center pb-6">
-        <span class="text-7xl font-sans font-semibold text-purple-900">Sign In</span>
+        <span class="text-7xl font-quicksand font-black text-purple-900">Sign In</span>
       </div>
       <div class="flex flex-row h-14 my-3">
         <label for="username">Username:</label>
@@ -23,7 +26,9 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      message: '',
+      errorStatus: -1
     }
   },
   computed: {
@@ -41,9 +46,15 @@ export default {
       const user = {}
       user.username = this.username
       user.password = this.password
-      this.$store.dispatch('auth/login', user).then(() => {
-        this.$router.push('/')
-      }).catch((err) => console.error(err))
+      this.$store.dispatch('auth/login', user).then(
+        () => {
+          this.$router.push('/user')
+        },
+        (error) => {
+          this.message = error.response.data.message
+          this.errorStatus = error.response.status
+        }
+      )
     }
   }
 }

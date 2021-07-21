@@ -1,6 +1,7 @@
 <template>
   <welcome intro="New Project" signature="Add a new project" />
   <form enctype="multipart/form-data" action="http://localhost:3000/create/project" method="post" id="project">
+    <input class="hidden" type="hidden" name="userId" id="userId" :value="userId">
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="title">Title:</label>
       <input class="w-56 overflow-x-auto" type="text" name="title" id="title">
@@ -44,6 +45,9 @@ export default {
   computed: {
     compiledMarkdown () {
       return DOMPurify.sanitize(marked(this.input))
+    },
+    userId () {
+      return this.$store.state.auth.user.id
     }
   },
   methods: {
