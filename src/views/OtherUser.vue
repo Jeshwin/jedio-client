@@ -15,10 +15,8 @@
         <span class="ml-2">Joined {{ dateJoined }}</span>
       </div>
       <div class="grid grid-cols-3 gap-4 mt-4 mx-12 mb-12">
-        <div class="flex flex-col">
-          <div v-for="project in projectList" :key="project.id" class="bg-white rounded-2xl relative h-var w-var">
-            <home-display :name="project.title" :projid="project.id" />
-          </div>
+        <div v-for="project in projectList" :key="project.id" class="bg-white rounded-2xl relative h-var w-var">
+          <home-display :name="project.title" :projid="project.id" />
         </div>
       </div>
     </div>

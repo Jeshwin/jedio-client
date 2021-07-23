@@ -4,7 +4,6 @@
       <div class="h-64 w-full bg-gray-400 rounded-t-3xl border-b-2 border-black"></div>
       <div class="flex justify-between pl-16 -mt-28">
         <img class="w-48 h-48 rounded-full ring-2 ring-black bg-gray-50" :src="userAvatar">
-        <a href="http://localhost:8080/user/update" class="w-auto h-10 py-2 px-8 mt-28 mr-6 rounded-full ring-2 ring-purple-700 text-purple-700 hover:ring-green-500 hover:text-green-500 transition duration-300 text-xl text-center font-black cursor-pointer">Edit Profile</a>
       </div>
       <span class="flex justify-start pl-12 text-6xl text-black font-quicksand">@{{ user.username }}</span>
       <div class="flex justify-start pl-14 text-2xl text-gray-800 font-quicksand">
