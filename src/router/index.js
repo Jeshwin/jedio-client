@@ -53,6 +53,11 @@ const routes = [
     component: () => import('@/views/UpdateProject.vue')
   },
   {
+    path: '/update/project/:id',
+    name: 'Update Project By Id',
+    component: () => import('@/views/UpdateProjectById.vue')
+  },
+  {
     path: '/delete',
     name: 'Delete',
     component: () => import('@/views/DeleteTester.vue')

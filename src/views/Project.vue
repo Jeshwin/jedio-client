@@ -1,22 +1,22 @@
 <template>
-  <div class="flex flex-row justify-start gap-4 h-auto pt-24 pb-4 border-b border-black text-left">
-    <div class="w-44 flex-shrink-0 rounded-2xl ring-1 ring-gray-500">
-      <img :src="source" :alt="thumbnail.fileName" class="h-44 w-44 rounded-2xl">
+  <div class="flex flex-row justify-start gap-4 h-auto pt-24 pb-2 border-b border-gray-800 text-left">
+    <div class="w-36 flex-shrink-0 rounded-2xl ring-1 ring-gray-500">
+      <img :src="source" :alt="thumbnail.fileName" class="h-36 w-36 rounded-2xl">
     </div>
-    <div class="grid grid-cols-2 w-full pt-14">
-      <div class="text-7xl text-left w-full h-20 col-span-2 font-montserrat text-black">
+    <div class="grid grid-cols-2 w-full pt-4">
+      <div class="text-8xl text-left w-full -ml-2 h-24 col-span-2 font-montserrat text-black">
         {{ project.title }}
       </div>
       <div v-if="project.userId" class="flex flex-row justify-start w-full self-start -mt-1">
-        <img class="w-10 h-10 mr-2 rounded-full ring-1 ring-black" src="@/assets/default_pfp.png">
-        <a class="text-4xl text-gray-400 hover:text-purple-800 transition duration-500 font-quicksand font-medium" :href="createrProfile" >@{{ username }}</a>
+        <img class="w-8 h-8 mr-2 rounded-full ring-1 ring-black" :src="avatar">
+        <a class="text-2xl text-gray-600 hover:text-purple-800 transition duration-300 font-quicksand font-medium" :href="createrProfile" >@{{ username }}</a>
       </div>
-      <div v-else class="flex flex-row justify-start text-4xl w-full self-start -mt-1 font-quicksand text-gray-700 font-medium">
-        <img class="w-10 h-10 mr-2 rounded-full ring-1 ring-black" src="@/assets/default_pfp.png">
+      <div v-else class="flex flex-row justify-start text-2xl w-full self-start -mt-1 font-quicksand text-gray-600 font-medium">
+        <img class="w-8 h-8 mr-2 rounded-full ring-1 ring-black" src="@/assets/default_pfp.png">
         By Anon
       </div>
-      <div class="text-base w-full h-auto -mt-2 font-montserrat text-gray-700 text-right">
-        {{ createdDate }}<br>{{ updatedDate }}
+      <div class="text-lg w-full h-auto font-montserrat text-gray-700 text-right">
+        {{ createdDate }} ~ {{ updatedDate }}
       </div>
     </div>
   </div>
@@ -39,6 +39,7 @@ export default {
     return {
       project: { description: '### Filler description\n > Filler' },
       username: '',
+      avatar: 'http://localhost:3000/avatar/5200.png',
       thumbnail: {},
       blobs: [],
       monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -53,6 +54,7 @@ export default {
     this.blobs = Blobres.data
     const Userres = await axios.get(`http://localhost:3000/user/${this.project.userId}`).catch((err) => console.error(err))
     this.username = Userres.data[0].username
+    this.avatar = `http://localhost:3000/avatar/${Userres.data[0].avatar}.png`
   },
   computed: {
     source () {
