@@ -37,7 +37,7 @@ export default {
   },
   async created () {
     try {
-      const res = await axios.get('http://localhost:3000/projects')
+      const res = await axios.get(`http://localhost:3000/project/user/${this.$store.state.auth.user.id}`)
 
       this.projects = res.data
     } catch (e) {
