@@ -5,15 +5,14 @@
     </router-link>
     <div class="w-full flex justify-end">
       <div v-if="loggedIn">
-        <router-link v-if="isAdmin" class="mx-6" to="/delete">Delete</router-link>
-        <router-link class="mx-6" to="/create/project">New Project</router-link>
-        <router-link class="mx-6" to="/create/blob">New Blob</router-link>
-        <router-link class="mx-6" to="/update/project">Update</router-link>
-        <span class="mx-6 cursor-pointer" @click="logout">Log Out</span>
+        <router-link class="mx-4" to="/user">Profile</router-link>
+        <router-link class="mx-4" to="/create/project">New Project</router-link>
+        <router-link class="mx-4" to="/create/blob">New Blob</router-link>
+        <span class="mx-4 cursor-pointer" @click="logout">Log Out</span>
       </div>
       <div v-else>
-        <router-link class="mx-6" to="/register">Register</router-link>
-        <router-link class="mx-6" to="/signin">Log In</router-link>
+        <router-link class="mx-4" to="/register">Register</router-link>
+        <router-link class="mx-4" to="/signin">Log In</router-link>
       </div>
     </div>
   </ul>

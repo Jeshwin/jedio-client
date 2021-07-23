@@ -1,6 +1,6 @@
 <template lang="html">
   <a :href="link" class="place-self-center m-auto h-full w-full">
-    <div class="absolute inset-0 z-10 transform duration-500 opacity-0 hover:opacity-100 bg-opacity-90 bg-white text-center text-black font-quicksand text-2xl flex flex-col items-center justify-center p-var">
+    <div class="absolute inset-0 z-10 transform duration-500 opacity-0 hover:opacity-100 bg-opacity-50 bg-white text-center text-black font-quicksand text-2xl flex flex-col items-center justify-center p-var">
       {{ name }}
     </div>
     <img class="h-full w-full" :src="source" :alt="name">
@@ -13,7 +13,6 @@ import axios from 'axios'
 export default {
   name: 'HomeDisplay',
   props: {
-    medium: String,
     name: {
       type: String,
       default: 'null'
