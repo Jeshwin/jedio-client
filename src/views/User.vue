@@ -4,6 +4,7 @@
       <div class="h-64 w-full bg-gray-400 rounded-t-3xl border-b-2 border-black"></div>
       <div class="flex justify-between pl-16 -mt-28">
         <img class="w-48 h-48 rounded-full ring-2 ring-black bg-gray-50" :src="userAvatar">
+        <router-link to="/user/edit" type="button" class="cursor-pointer w-auto h-12 px-4 py-2 mr-10 mt-28 text-2xl font-semibold rounded-full text-purple-400 ring-purple-400 ring-4 hover:text-green-600 hover:ring-green-600 transition duration-300">Edit Profile</router-link>
       </div>
       <span class="flex justify-start pl-12 text-6xl text-black font-quicksand">@{{ user.username }}</span>
       <div class="flex justify-start pl-14 text-2xl text-gray-800 font-quicksand">
@@ -21,6 +22,9 @@
           </a>
           <home-display :name="project.title" :projid="project.id" />
         </div>
+        <router-link to="/create/project" class="bg-red-400 rounded-3xl relative h-var w-var flex hover:bg-green-400 transition duration-500 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="place-self-center h-40 mx-auto fill-current stroke-current text-white" viewBox="0 0 16 16" width="720" height="720"><path fill-rule="evenodd" d="M7.75 2a.75.75 0 01.75.75V7h4.25a.75.75 0 110 1.5H8.5v4.25a.75.75 0 11-1.5 0V8.5H2.75a.75.75 0 010-1.5H7V2.75A.75.75 0 017.75 2z"></path></svg>
+        </router-link>
       </div>
     </div>
   </div>

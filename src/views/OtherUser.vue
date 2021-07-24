@@ -47,10 +47,14 @@ export default {
   },
   async created () {
     console.log(this.$route.params.id)
-    console.log(this.$store.state.auth.user.id)
-    if (parseInt(this.$route.params.id) === this.$store.state.auth.user.id) {
-      console.log('This profile is yours!!!')
-      this.$router.push('/user')
+    if (this.$store.state.auth.user) {
+      console.log(this.$store.state.auth.user.id)
+      if (parseInt(this.$route.params.id) === this.$store.state.auth.user.id) {
+        console.log('This profile is yours!!!')
+        this.$router.push('/user')
+      }
+    } else {
+      console.log('User is not logged in')
     }
     const userData = await axios.get(`http://localhost:3000/user/${this.$route.params.id}`).catch((err) => console.error(err))
     this.user = userData.data[0]

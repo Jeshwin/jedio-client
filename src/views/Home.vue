@@ -1,7 +1,7 @@
 <template>
   <Welcome intro="Portfolio" signature="Make a blog post for your own projects!" />
   <Portfolio medium="3D Models" />
-  <Portfolio medium="Applicationss" />
+  <Portfolio medium="Applications" />
   <Portfolio medium="Graphics" />
   <Portfolio medium="Algorithms" />
 </template>
