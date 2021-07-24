@@ -30,6 +30,19 @@ class AuthService {
       password: user.password
     })
   }
+
+  edit (user) {
+    return axios
+      .post(API_URL + 'user/edit', {
+        userId: user.userId,
+        username: user.username,
+        email: user.email
+      })
+      .then(response => {
+        localStorage.setItem('user', JSON.stringify(response.data))
+        return response.data
+      })
+  }
 }
 
 export default new AuthService()

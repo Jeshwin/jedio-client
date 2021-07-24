@@ -36,6 +36,18 @@ export const auth = {
           return Promise.reject(error)
         }
       )
+    },
+    edit ({ commit }, user) {
+      return AuthService.edit(user).then(
+        user => {
+          commit('editSuccess', user)
+          return Promise.resolve(user)
+        },
+        error => {
+          commit('editFailure')
+          return Promise.reject(error)
+        }
+      )
     }
   },
   mutations: {
@@ -56,6 +68,13 @@ export const auth = {
     },
     registerFailure (state) {
       state.status.loggedIn = false
+    },
+    editSuccess (state, user) {
+      state.status.loggedIn = true
+      state.user = user
+    },
+    editFailure (state) {
+      state.status.loggedIn = true
     }
   }
 }
