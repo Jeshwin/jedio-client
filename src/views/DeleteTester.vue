@@ -21,6 +21,11 @@ export default {
     DeleteProjects,
     DeleteBlobs,
     DeleteCategories
+  },
+  created () {
+    if (!this.$store.state.auth.user.isAdmin) {
+      this.$router.push('/')
+    }
   }
 }
 </script>
