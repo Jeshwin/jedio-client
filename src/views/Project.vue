@@ -55,7 +55,7 @@
 
 <script>
 import axios from "axios";
-import marked from "marked";
+import { marked } from "marked";
 import DOMPurify from "dompurify";
 import Gallery from "@/components/Gallery.vue";
 

@@ -57,7 +57,7 @@
 
 <script>
 import Welcome from "@/components/Welcome.vue";
-import marked from "marked";
+import { marked } from "marked";
 import DOMPurify from "dompurify";
 import axios from "axios";
 
