@@ -1,7 +1,10 @@
+import { ActionContext } from "vuex";
 import AuthService from "../auth/auth.service";
 
-const user = JSON.parse(localStorage.getItem("user") ?? "");
-const initialState = user
+import { User, State } from "../../types";
+
+const user: User = JSON.parse(localStorage.getItem("user") ?? "");
+const initialState: State = user
   ? { status: { loggedIn: true }, user }
   : { status: { loggedIn: false }, user: null };
 
@@ -9,71 +12,71 @@ export const auth = {
   namespaced: true,
   state: initialState,
   actions: {
-    login({ commit }, user) {
+    login(context: ActionContext<State, {}>, user: User) {
       return AuthService.login(user).then(
         (user) => {
-          commit("loginSuccess", user);
+          context.commit("loginSuccess", user);
           return Promise.resolve(user);
         },
         (error) => {
-          commit("loginFailure");
+          context.commit("loginFailure");
           return Promise.reject(error);
         }
       );
     },
-    logout({ commit }) {
+    logout(context: ActionContext<State, {}>) {
       AuthService.logout();
-      commit("logout");
+      context.commit("logout");
     },
-    register({ commit }, user) {
+    register(context: ActionContext<State, {}>, user: User) {
       return AuthService.register(user).then(
         (response) => {
-          commit("registerSuccess");
+          context.commit("registerSuccess");
           return Promise.resolve(response.data);
         },
         (error) => {
-          commit("registerFailure");
+          context.commit("registerFailure");
           return Promise.reject(error);
         }
       );
     },
-    edit({ commit }, user) {
+    edit(context: ActionContext<State, {}>, user: User) {
       return AuthService.edit(user).then(
         (user) => {
-          commit("editSuccess", user);
+          context.commit("editSuccess", user);
           return Promise.resolve(user);
         },
         (error) => {
-          commit("editFailure");
+          context.commit("editFailure");
           return Promise.reject(error);
         }
       );
     },
   },
   mutations: {
-    loginSuccess(state, user) {
+    loginSuccess(state: State, user: User) {
       state.status.loggedIn = true;
       state.user = user;
     },
-    loginFailure(state) {
+    loginFailure(state: State) {
       state.status.loggedIn = false;
       state.user = null;
     },
-    logout(state) {
+    logout(state: State) {
       state.status.loggedIn = false;
       state.user = null;
     },
-    registerSuccess(state) {
+    registerSuccess(state: State) {
       state.status.loggedIn = false;
     },
-    registerFailure(state) {
+    registerFailure(state: State) {
       state.status.loggedIn = false;
     },
-    editSuccess(state, user) {
+    editSuccess(state: State, user: User) {
       state.status.loggedIn = true;
       state.user = user;
     },
-    editFailure(state) {
+    editFailure(state: State) {
       state.status.loggedIn = true;
     },
   },
