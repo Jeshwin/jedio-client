@@ -1,7 +1,9 @@
 <template lang="html">
-  <ul class="h-16 items-center flex w-full flex-row fixed m-0 p-2 bg-white bg-opacity-20 backdrop-filter backdrop-blur-md shadow-lg z-40">
+  <ul
+    class="h-16 items-center flex w-full flex-row fixed m-0 p-2 bg-white bg-opacity-20 backdrop-filter backdrop-blur-md shadow-lg z-40"
+  >
     <router-link class="mx-6" to="/">
-      <img src="@/assets/portfolio.png" width="50" height="50">
+      <img src="@/assets/portfolio.png" width="50" height="50" />
     </router-link>
     <div class="w-full flex justify-end">
       <div v-if="loggedIn">
@@ -20,21 +22,24 @@
 
 <script>
 export default {
-  name: 'Nav',
+  name: "Nav",
   computed: {
-    loggedIn () {
-      return this.$store.state.auth.status.loggedIn
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
     },
-    isAdmin () {
-      return this.$store.state.auth.user.isAdmin
-    }
+    isAdmin() {
+      return this.$store.state.auth.user.isAdmin;
+    },
   },
   methods: {
-    logout () {
-      this.$store.dispatch('auth/logout').then(() => this.$router.push('/')).catch((err) => console.error(err))
-    }
-  }
-}
+    logout() {
+      this.$store
+        .dispatch("auth/logout")
+        .then(() => this.$router.push("/"))
+        .catch((err) => console.error(err));
+    },
+  },
+};
 </script>
 
 <style lang="postcss" scoped>

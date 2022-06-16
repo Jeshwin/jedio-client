@@ -1,5 +1,7 @@
 <template lang="html">
-  <div class="grid grid-cols-1 h-full pt-32 pb-20 border-b border-black text-left">
+  <div
+    class="grid grid-cols-1 h-full pt-32 pb-20 border-b border-black text-left"
+  >
     <div class="text-8xl w-full font-montserrat text-black">
       {{ intro }}
     </div>
@@ -11,13 +13,12 @@
 
 <script>
 export default {
-  name: 'Welcome',
+  name: "Welcome",
   props: {
     intro: String,
-    signature: String
-  }
-}
+    signature: String,
+  },
+};
 </script>
 
-<style lang="postcss" scoped>
-</style>
+<style lang="postcss" scoped></style>

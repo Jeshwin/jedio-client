@@ -24,4 +24,4 @@ pnpm-debug.log*
 *.sw?
 
 # tailwind config file is HUGE
-tailwind.config.js
+# tailwind.config.js

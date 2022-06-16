@@ -1,9 +1,7 @@
 <template>
   <div class="w-full pt-6 pb-12 border-t border-gray-700">
     <div class="grid grid-cols-1 gap-2">
-      <div class="text-4xl text-black text-left pb-4">
-        Gallery
-      </div>
+      <div class="text-4xl text-black text-left pb-4">Gallery</div>
       <div class="w-full">
         <ul class="flex flex-wrap gap-2">
           <li class="flex-grow" v-for="blob in blobs" :key="blob.id">
@@ -17,17 +15,17 @@
 </template>
 
 <script>
-import BlobsDisplay from '@/components/BlobsDisplay.vue'
+import BlobsDisplay from "@/components/BlobsDisplay.vue";
 
 export default {
-  name: 'Gallery',
+  name: "Gallery",
   props: {
-    blobs: Array
+    blobs: Array,
   },
   components: {
-    BlobsDisplay
-  }
-}
+    BlobsDisplay,
+  },
+};
 </script>
 
 <style lang="postcss" scoped>

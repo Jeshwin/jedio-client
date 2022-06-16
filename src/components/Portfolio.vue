@@ -4,10 +4,17 @@
       <div class="text-4xl font-bold text-black text-left">
         {{ medium }}
       </div>
-      <vue-horizontal snap="none" class="flex flex-nowrap justify-left gap-x-6 w-full h-var">
-        <div class="w-var relative" v-for="project in projects" :key="project.id">
+      <vue-horizontal
+        snap="none"
+        class="flex flex-nowrap justify-left gap-x-6 w-full h-var"
+      >
+        <div
+          class="w-var relative"
+          v-for="project in projects"
+          :key="project.id"
+        >
           <div class="flex rounded-md shadow-lg h-full p-var">
-            <HomeDisplay :name="project.title" :projid="project.id"/>
+            <HomeDisplay :name="project.title" :projid="project.id" />
           </div>
         </div>
       </vue-horizontal>
@@ -16,29 +23,31 @@
 </template>
 
 <script>
-import HomeDisplay from './HomeDisplay.vue'
-import VueHorizontal from 'vue-horizontal'
-import axios from 'axios'
+import HomeDisplay from "./HomeDisplay.vue";
+import VueHorizontal from "vue-horizontal";
+import axios from "axios";
 
 export default {
-  name: 'Portfolio',
+  name: "Portfolio",
   props: {
-    medium: String
+    medium: String,
   },
-  data () {
+  data() {
     return {
-      projects: []
-    }
+      projects: [],
+    };
   },
   components: {
     HomeDisplay,
-    VueHorizontal
+    VueHorizontal,
   },
-  async created () {
-    const res = await axios.get(`http://localhost:3000/project/category/${this.medium}`)
-    this.projects = res.data
-  }
-}
+  async created() {
+    const res = await axios.get(
+      `http://localhost:3000/project/category/${this.medium}`
+    );
+    this.projects = res.data;
+  },
+};
 </script>
 
 <style lang="postcss" scoped>

@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import Welcome from '@/components/Welcome.vue'
+import Welcome from "@/components/Welcome.vue";
 
 export default {
-  name: 'About',
+  name: "About",
   components: {
-    Welcome
-  }
-}
+    Welcome,
+  },
+};
 </script>

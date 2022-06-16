@@ -5,7 +5,12 @@
         Delete Categories
       </div>
       <div class="grid grid-cols-3 gap-10 text-2xl text-white font-quicksand">
-        <button class="transform duration-200 rounded-xl bg-gray-700 hover:bg-gray-900 content-center h-25 p-5" v-for="category in categories" :key="category" @click="deleteCategory(category)">
+        <button
+          class="transform duration-200 rounded-xl bg-gray-700 hover:bg-gray-900 content-center h-25 p-5"
+          v-for="category in categories"
+          :key="category"
+          @click="deleteCategory(category)"
+        >
           Delete '{{ category }}'
         </button>
       </div>
@@ -14,32 +19,34 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name: 'DeleteCategories',
-  data () {
+  name: "DeleteCategories",
+  data() {
     return {
-      categories: []
-    }
+      categories: [],
+    };
   },
-  async created () {
-    const res = await axios.get('http://localhost:3000/projects').catch(err => console.error(err))
+  async created() {
+    const res = await axios
+      .get("http://localhost:3000/projects")
+      .catch((err) => console.error(err));
     res.data.forEach((project) => {
       if (!this.categories.includes(project.category)) {
-        this.categories.push(project.category)
+        this.categories.push(project.category);
       }
-    })
+    });
   },
   methods: {
-    async deleteCategory (category) {
-      await axios.delete(`http://localhost:3000/delete/category/${category}`).catch(err => console.error(err))
-      this.$router.push('/')
-    }
-  }
-}
+    async deleteCategory(category) {
+      await axios
+        .delete(`http://localhost:3000/delete/category/${category}`)
+        .catch((err) => console.error(err));
+      this.$router.push("/");
+    },
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
