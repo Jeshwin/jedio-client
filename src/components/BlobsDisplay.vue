@@ -13,7 +13,10 @@ import axios from "axios";
 export default {
   name: "BlobsDisplay",
   props: {
-    id: Number,
+    id: {
+      type: Number,
+      default: 1,
+    },
   },
   data() {
     return {

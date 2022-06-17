@@ -48,8 +48,9 @@
   </div>
   <div
     class="mx-auto pt-10 pb-14 prose prose-2xl prose-purple font-quicksand text-left"
-    v-html="markedDescription"
-  ></div>
+  >
+    {{ markedDescription }}
+  </div>
   <gallery :blobs="blobs" />
 </template>
 
@@ -60,7 +61,7 @@ import DOMPurify from "dompurify";
 import Gallery from "@/components/Gallery.vue";
 
 export default {
-  name: "Project",
+  name: "ProjectView",
   components: {
     Gallery,
   },
@@ -87,27 +88,6 @@ export default {
       ],
     };
   },
-  async created() {
-    const Projres = await axios
-      .get(`http://localhost:3000/project/${this.$route.params.projid}`)
-      .catch((err) => console.error(err));
-    const Thumbres = await axios
-      .get(
-        `http://localhost:3000/project/${this.$route.params.projid}/thumbnail`
-      )
-      .catch((err) => console.error(err));
-    const Blobres = await axios
-      .get(`http://localhost:3000/project/${this.$route.params.projid}/blobs`)
-      .catch((err) => console.error(err));
-    this.project = Projres.data[0];
-    this.thumbnail = Thumbres.data[0];
-    this.blobs = Blobres.data;
-    const Userres = await axios
-      .get(`http://localhost:3000/user/${this.project.userId}`)
-      .catch((err) => console.error(err));
-    this.username = Userres.data[0].username;
-    this.avatar = `http://localhost:3000/avatar/${Userres.data[0].avatar}.png`;
-  },
   computed: {
     source() {
       return `http://localhost:3000/${this.thumbnail.fileType}/${this.thumbnail.fileName}.${this.thumbnail.fileType}`;
@@ -130,6 +110,27 @@ export default {
         this.monthNames[created.getMonth()]
       } ${created.getDate()}, ${created.getFullYear()}`;
     },
+  },
+  async created() {
+    const Projres = await axios
+      .get(`http://localhost:3000/project/${this.$route.params.projid}`)
+      .catch((err) => console.error(err));
+    const Thumbres = await axios
+      .get(
+        `http://localhost:3000/project/${this.$route.params.projid}/thumbnail`
+      )
+      .catch((err) => console.error(err));
+    const Blobres = await axios
+      .get(`http://localhost:3000/project/${this.$route.params.projid}/blobs`)
+      .catch((err) => console.error(err));
+    this.project = Projres.data[0];
+    this.thumbnail = Thumbres.data[0];
+    this.blobs = Blobres.data;
+    const Userres = await axios
+      .get(`http://localhost:3000/user/${this.project.userId}`)
+      .catch((err) => console.error(err));
+    this.username = Userres.data[0].username;
+    this.avatar = `http://localhost:3000/avatar/${Userres.data[0].avatar}.png`;
   },
 };
 </script>

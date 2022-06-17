@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "Nav",
+  name: "NavBar",
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;

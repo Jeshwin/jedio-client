@@ -6,7 +6,7 @@
 import Welcome from "@/components/Welcome.vue";
 
 export default {
-  name: "About",
+  name: "AboutView",
   components: {
     Welcome,
   },

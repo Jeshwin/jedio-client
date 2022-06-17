@@ -7,12 +7,12 @@
   >
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="oldtitle">Project:</label>
-      <select name="oldtitle" id="oldtitle" @change="updateFiller">
+      <select id="oldtitle" name="oldtitle" @change="updateFiller">
         <option :value="fillerValue">~~ Select An Option ~~</option>
         <option
           v-for="project in projects"
-          :value="project.title"
           :key="project.id"
+          :value="project.title"
         >
           {{ project.title }}
         </option>
@@ -21,35 +21,36 @@
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="title">New Title:</label>
       <input
+        id="title"
+        v-model="title"
         class="w-56 overflow-x-auto"
         type="text"
         name="title"
-        id="title"
-        v-model="title"
       />
     </div>
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="category">New Category:</label>
       <input
+        id="category"
+        v-model="category"
         class="w-36 overflow-x-auto"
         type="text"
         name="category"
-        id="category"
-        v-model="category"
       />
     </div>
     <div class="flex flex-row my-3 border-b border-purple-200">
       <label for="description">New Description:</label>
       <textarea
+        id="description"
         v-model="input"
         placeholder="## Enter description here..."
         name="description"
-        id="description"
       ></textarea>
       <div
         class="prose prose-sm md:prose lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-purple w-2/5 h-96 mb-4 p-6 overflow-y-auto rounded-r-lg border-2 border-l-0 border-purple-400 font-montserrat"
-        v-html="compiledMarkdown"
-      ></div>
+      >
+        {{ compiledMarkdown }}
+      </div>
     </div>
     <input type="submit" value="Update!" />
   </form>
@@ -62,7 +63,7 @@ import DOMPurify from "dompurify";
 import axios from "axios";
 
 export default {
-  name: "Update Project",
+  name: "UpdateProject",
   components: {
     Welcome,
   },

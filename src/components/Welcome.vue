@@ -13,10 +13,16 @@
 
 <script>
 export default {
-  name: "Welcome",
+  name: "WelcomeComponent",
   props: {
-    intro: String,
-    signature: String,
+    intro: {
+      type: String,
+      required: true,
+    },
+    signature: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>

@@ -6,9 +6,9 @@
       </div>
       <div class="grid grid-cols-3 gap-10 text-2xl text-white font-quicksand">
         <button
-          class="transform duration-200 rounded-xl bg-gray-700 hover:bg-gray-900 content-center h-25 p-5"
           v-for="category in categories"
           :key="category"
+          class="transform duration-200 rounded-xl bg-gray-700 hover:bg-gray-900 content-center h-25 p-5"
           @click="deleteCategory(category)"
         >
           Delete '{{ category }}'

@@ -63,7 +63,7 @@ import axios from "axios";
 import HomeDisplay from "@/components/HomeDisplay.vue";
 
 export default {
-  name: "Other User",
+  name: "OtherUser",
   components: {
     HomeDisplay,
   },
@@ -79,6 +79,26 @@ export default {
       },
       projectList: [],
     };
+  },
+  computed: {
+    dateJoined() {
+      const created = new Date(this.user.createdAt);
+      const monthsList = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      return `${monthsList[created.getMonth()]} ${created.getFullYear()}`;
+    },
   },
   async created() {
     console.log(this.$route.params.id);
@@ -101,26 +121,6 @@ export default {
       .catch((err) => console.error(err));
     console.log(Projsres.data);
     this.projectList = Projsres.data;
-  },
-  computed: {
-    dateJoined() {
-      const created = new Date(this.user.createdAt);
-      const monthsList = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      return `${monthsList[created.getMonth()]} ${created.getFullYear()}`;
-    },
   },
 };
 </script>

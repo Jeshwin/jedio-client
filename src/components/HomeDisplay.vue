@@ -19,7 +19,10 @@ export default {
       type: String,
       default: "null",
     },
-    projid: Number,
+    projid: {
+      type: Number,
+      default: 1,
+    },
   },
   data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <welcome intro="Delete Panel" signature="" />
+  <welcome intro="Delete Tester" signature="" />
   <delete-users />
   <delete-projects />
   <delete-blobs />
@@ -14,7 +14,7 @@ import DeleteBlobs from "@/components/delete/DeleteBlobs.vue";
 import DeleteCategories from "@/components/delete/DeleteCategories.vue";
 
 export default {
-  name: "Delete",
+  name: "DeleteTester",
   components: {
     Welcome,
     DeleteUsers,

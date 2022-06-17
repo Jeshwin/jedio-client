@@ -103,7 +103,7 @@ import axios from "axios";
 import HomeDisplay from "@/components/HomeDisplay.vue";
 
 export default {
-  name: "User",
+  name: "UserView",
   components: {
     HomeDisplay,
   },

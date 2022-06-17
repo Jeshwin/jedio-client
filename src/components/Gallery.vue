@@ -4,7 +4,7 @@
       <div class="text-4xl text-black text-left pb-4">Gallery</div>
       <div class="w-full">
         <ul class="flex flex-wrap gap-2">
-          <li class="flex-grow" v-for="blob in blobs" :key="blob.id">
+          <li v-for="blob in blobs" :key="blob.id" class="flex-grow">
             <blobs-display :id="blob.id" />
           </li>
           <li class="end"></li>
@@ -18,12 +18,15 @@
 import BlobsDisplay from "@/components/BlobsDisplay.vue";
 
 export default {
-  name: "Gallery",
-  props: {
-    blobs: Array,
-  },
+  name: "GalleryComponent",
   components: {
     BlobsDisplay,
+  },
+  props: {
+    blobs: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>

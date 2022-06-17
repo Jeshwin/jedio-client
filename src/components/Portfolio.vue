@@ -9,9 +9,9 @@
         class="flex flex-nowrap justify-left gap-x-6 w-full h-var"
       >
         <div
-          class="w-var relative"
           v-for="project in projects"
           :key="project.id"
+          class="w-var relative"
         >
           <div class="flex rounded-md shadow-lg h-full p-var">
             <HomeDisplay :name="project.title" :projid="project.id" />
@@ -28,18 +28,21 @@ import VueHorizontal from "vue-horizontal";
 import axios from "axios";
 
 export default {
-  name: "Portfolio",
+  name: "PortfolioComponent",
+  components: {
+    HomeDisplay,
+    VueHorizontal,
+  },
   props: {
-    medium: String,
+    medium: {
+      type: String,
+      default: "test",
+    },
   },
   data() {
     return {
       projects: [],
     };
-  },
-  components: {
-    HomeDisplay,
-    VueHorizontal,
   },
   async created() {
     const res = await axios.get(

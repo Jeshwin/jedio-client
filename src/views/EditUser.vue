@@ -6,7 +6,7 @@
     action="javascript:void(0);"
     @submit="editUser"
   >
-    <input type="hidden" name="userId" id="userId" v-model="userId" />
+    <input id="userId" v-model="userId" type="hidden" name="userId" />
     <div class="grid grid-cols-1 gap-y-4 rounded-3xl bg-gray-200">
       <div
         class="h-64 w-full bg-gray-400 rounded-t-3xl border-b-2 border-black"
@@ -24,11 +24,11 @@
       </div>
       <span class="flex justify-start pl-12 text-6xl text-black font-quicksand">
         @<input
+          id="username"
+          v-model="username"
           class="w-1/2 ml-2 p-0.5 pb-1 pl-4 bg-gray-300 rounded-2xl"
           type="text"
           name="username"
-          id="username"
-          v-model="username"
         />
       </span>
       <div
@@ -46,11 +46,11 @@
           ></path>
         </svg>
         <input
+          id="email"
+          v-model="email"
           class="w-1/2 ml-2 p-0.5 pb-1 pl-4 bg-gray-300 rounded-lg"
           type="email"
           name="email"
-          id="email"
-          v-model="email"
         />
       </div>
     </div>
@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: "User",
+  name: "EditUser",
   data() {
     return {
       userId: -1,

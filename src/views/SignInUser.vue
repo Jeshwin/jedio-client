@@ -2,23 +2,23 @@
   <div class="w-1/2 min-w-max mx-auto pt-28">
     <div
       v-if="errorStatus === 401"
-      @animationend="resetMessageAndStatus"
       class="toast absolute w-auto max-w-max mx-auto h-16 p-4 mt-20 inset-0 z-30 rounded-xl bg-yellow-300 opacity-0 shadow-2xl text-black font-mono font-black text-2xl"
+      @animationend="resetMessageAndStatus"
     >
       {{ errorStatus }} : {{ message }}
     </div>
     <div
       v-if="errorStatus === 403"
-      @animationend="resetMessageAndStatus"
       class="toast absolute w-auto max-w-max mx-auto h-16 p-4 mt-20 inset-0 z-30 rounded-xl bg-red-700 opacity-0 shadow-2xl text-white font-mono font-black text-2xl"
+      @animationend="resetMessageAndStatus"
     >
       {{ errorStatus }} : {{ message }}
     </div>
     <form
       enctype="application/x-www-form-urlencoded"
       action="javascript:void(0);"
-      @submit="signinUser"
       method="post"
+      @submit="signinUser"
     >
       <div class="text-center pb-6">
         <span class="text-7xl font-quicksand font-black text-purple-900"
@@ -28,21 +28,21 @@
       <div class="flex flex-row h-14 my-3">
         <label for="username">Username:</label>
         <input
+          id="username"
+          v-model="username"
           class="w-full overflow-x-auto"
           type="text"
           name="username"
-          id="username"
-          v-model="username"
         />
       </div>
       <div class="flex flex-row h-14 my-3">
         <label for="password">Password:</label>
         <input
+          id="password"
+          v-model="password"
           class="w-full overflow-x-auto"
           type="password"
           name="password"
-          id="password"
-          v-model="password"
         />
       </div>
       <input type="submit" value="Sign In" />
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: "Sign In",
+  name: "SignIn",
   data() {
     return {
       username: "",

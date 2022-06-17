@@ -1,32 +1,32 @@
 <template>
   <Welcome intro="New Blob" signature="Blobs are files linked to projects" />
   <form
+    id="blobForm"
     enctype="multipart/form-data"
     action="http://localhost:3000/create/blob"
     method="post"
-    id="blobForm"
   >
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <p class="fake-label">Blob:</p>
       <label for="blob" class="custom-blob-button">
         <p>{{ blobFileName }}</p>
         <input
+          id="blob"
           class="hidden"
           type="file"
           name="blob"
           form="blobForm"
-          id="blob"
           @change="getBlobFileName"
         />
       </label>
     </div>
     <div class="flex flex-row h-14 my-3 border-b border-purple-200">
       <label for="project">Project:</label>
-      <select name="project" id="project">
+      <select id="project" name="project">
         <option
           v-for="project in projects"
-          :value="project.title"
           :key="project.id"
+          :value="project.title"
         >
           {{ project.title }}
         </option>
@@ -43,7 +43,7 @@ import Welcome from "@/components/Welcome.vue";
 import axios from "axios";
 
 export default {
-  name: "Create Project",
+  name: "CreateBlob",
   components: {
     Welcome,
   },

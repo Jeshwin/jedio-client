@@ -3,8 +3,8 @@
     <form
       enctype="application/x-www-form-urlencoded"
       action="javascript:void(0);"
-      @submit="registerUser"
       method="post"
+      @submit="registerUser"
     >
       <div class="text-center pb-6">
         <span class="text-7xl font-quicksand font-black text-purple-900"
@@ -14,31 +14,31 @@
       <div class="flex flex-row h-14 my-3">
         <label for="username">Username:</label>
         <input
+          id="username"
+          v-model="username"
           class="w-full overflow-x-auto"
           type="text"
           name="username"
-          id="username"
-          v-model="username"
         />
       </div>
       <div class="flex flex-row h-14 my-3">
         <label for="email">Email:</label>
         <input
+          id="email"
+          v-model="email"
           class="w-full overflow-x-auto"
           type="email"
           name="email"
-          id="email"
-          v-model="email"
         />
       </div>
       <div class="flex flex-row h-14 my-3">
         <label for="password">Password:</label>
         <input
+          id="password"
+          v-model="password"
           class="w-full overflow-x-auto"
           type="password"
           name="password"
-          id="password"
-          v-model="password"
         />
       </div>
       <div class="flex flex-row h-14 my-3">
@@ -49,11 +49,11 @@
           <div class="relative">
             <!-- input -->
             <input
-              name="isAdmin"
               id="isAdmin"
+              v-model="isAdmin"
+              name="isAdmin"
               type="checkbox"
               class="sr-only"
-              v-model="isAdmin"
             />
             <!-- line -->
             <div
@@ -73,7 +73,7 @@
 
 <script>
 export default {
-  name: "Register",
+  name: "RegisterView",
   data() {
     return {
       username: "",
