@@ -12,7 +12,7 @@ export const auth = {
   namespaced: true,
   state: initialState,
   actions: {
-    login(context: ActionContext<State, {}>, user: User) {
+    login(context: ActionContext<State, Record<string, unknown>>, user: User) {
       return AuthService.login(user).then(
         (user) => {
           context.commit("loginSuccess", user);
@@ -24,11 +24,14 @@ export const auth = {
         }
       );
     },
-    logout(context: ActionContext<State, {}>) {
+    logout(context: ActionContext<State, Record<string, unknown>>) {
       AuthService.logout();
       context.commit("logout");
     },
-    register(context: ActionContext<State, {}>, user: User) {
+    register(
+      context: ActionContext<State, Record<string, unknown>>,
+      user: User
+    ) {
       return AuthService.register(user).then(
         (response) => {
           context.commit("registerSuccess");
@@ -40,7 +43,7 @@ export const auth = {
         }
       );
     },
-    edit(context: ActionContext<State, {}>, user: User) {
+    edit(context: ActionContext<State, Record<string, unknown>>, user: User) {
       return AuthService.edit(user).then(
         (user) => {
           context.commit("editSuccess", user);

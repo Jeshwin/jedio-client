@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/views/Home.vue";
-import Project from "@/views/Project.vue";
+//import Home from "@/views/Home.vue";
+//import Project from "@/views/Project.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("@/views/Home.vue"),
   },
   {
     path: "/about",
@@ -70,7 +70,7 @@ const routes = [
   {
     path: "/project/:projid",
     name: "Project",
-    component: Project,
+    component: () => import("@/views/Project.vue"),
   },
 ];
 
