@@ -7,7 +7,7 @@ module.exports = {
 			montserrat: ["Montserrat"],
 			quicksand: ["Quicksand"],
 			jost: ["Jost"],
-			opensans: ["Open Sans"],
+			opensans: ["Ope\\ Sans"],
 		},
 	},
 	plugins: [],
